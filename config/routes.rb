@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/fitbit' => 'welcome#fitbit'
 
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
