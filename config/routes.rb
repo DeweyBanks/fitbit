@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'welcome#index'
-  get '/fitbit' => 'welcome#fitbit'
+
   get 'fitbit/:resource/:date.json' => 'fitbit_api#data_request'
   get 'fitbit_api/get_call' => 'fitbit_api#get_call'
 
