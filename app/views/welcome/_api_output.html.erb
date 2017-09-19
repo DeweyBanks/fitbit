@@ -1,5 +1,9 @@
-<% user_tmz = current_user.identity_for("fitbit").timezone %>
-<% today = Date.today.in_time_zone(user_tmz).to_date.strftime("%Y-%m-%d") %>
+<% if current_user.identity_for("fitbit") %>
+  <% user_tmz = current_user.identity_for("fitbit").timezone %>
+  <% today = Date.today.in_time_zone(user_tmz).to_date.strftime("%Y-%m-%d") %>
+<% else %>
+  <% today = Date.today.in_time_zone("America/New_York").to_date.strftime("%Y-%m-%d") %>
+<% end %>
 <div class="form-and-output-wrapper row">
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#preset-queries" role="tab" data-toggle="tab">Preset</a></li>
